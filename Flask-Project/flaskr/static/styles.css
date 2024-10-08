@@ -1,0 +1,117 @@
+/* static/styles.css */
+html {
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    margin: 0;
+}
+
+html {
+    background: linear-gradient(to top, 
+                #7de748 -10%, /* Subtle yellow-green at the bottom third */
+                #555555, /* Transition gray */
+                #333333, /* Medium gray */
+                #1a1a1a, /* Dim gray */
+                #000000); /* Black at the top */
+    color: white;  /* Sets text color to white for better readability */
+    margin: 0;
+    font-family: Arial, sans-serif;  /* Sets a default font */
+}
+
+.input{
+    height: 40%;
+    width: 100%;
+    margin-top: 10%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.input input{
+    height: 80px;
+    width: 400px;
+    background-color: transparent;
+    border: #7de748 solid 1px;
+    border-radius: 12px;
+    color: white;
+    font-size: 300%;
+    padding: 10px;
+    box-shadow: 5px 5px #555555;
+}
+
+.input input:focus-visible{
+    border: #7de748 solid 1px;
+    outline: none;
+}
+
+.input button{
+    height: 40px;
+    width: 120px;
+    background-color: transparent;
+    border: #7de748 solid 1px;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 3px 3px #555555;
+}
+
+.input button:active {
+    box-shadow: 1px 1px #555555;
+    transform: translate(2px, 2px);
+}
+
+h1{
+    /* color: #7de748; */
+    color: white;
+    position: absolute;
+    padding: 2%;
+    top: 10px;
+
+}
+
+.videoContainer{
+    height: 50%;
+    width: 100%;
+    margin-top: 10%;
+    position: relativ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.videoContainer video {
+    width: 60%;
+    height: 60%;
+    object-fit: cover; 
+    position: absolute;
+    top: 20%;
+    left: 20%;
+}
+
+.improvements{
+    margin-top: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.improvements button{
+    font-size: 130%;
+    height: 40px;
+    background-color: transparent;
+    border: #7de748 solid 1px;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 3px 3px #555555;
+    margin: 20px;
+}
+
+.improvements button:active {
+    box-shadow: 1px 1px #555555;
+    transform: translate(2px, 2px);
+}

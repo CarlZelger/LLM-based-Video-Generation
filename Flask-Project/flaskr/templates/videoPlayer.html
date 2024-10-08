@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#first').click(function() {
+                $.ajax({
+                    url: '/applySug',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    success: function(response) {
+                        $('#first').innerHTML(response.new_sug);
+                    },
+                    error: function() {
+                        alert('Error updating URL');
+                    }
+                });
+            });
+
+            $('#second').click(function() {
+                $.ajax({
+                    url: '/addTitle',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    success: function(response) {
+                        if (window.getComputedStyle(document.getElementById('third')).display === 'none') {
+                            $('#third').show();
+                        }
+                        $('#second').hide();
+                    },                    
+                    error: function() {
+                        alert('Error updating URL');
+                    }
+                });
+            });
+
+            $('#third').click(function() {
+                $.ajax({
+                    url: '/addQuestiones',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    success: function(response) {
+                        $('#video').attr('src',response.new_url);
+                        $('#third').hide()
+                    },
+                    error: function() {
+                        alert('Error updating URL');
+                    }
+                });
+            });
+
+            
+        });
+    </script>
+</head>
+<body>
+    <h1>Your Video about: {{ topic }}</h1>
+    <div class="videoContainer">
+        <video width="640" height="360" controls>
+            <source src="{{ video_url }}" type="video2/mp4" placeholder="yeet" id="video">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="improvements">
+        <button id="first">{{suggestion}}</button>
+        <button id="second">Add "{{optTitle}}" as an additional topic</button>
+        <button id="third">Add Questiones</button>
+    </div>
+</body>
+</html>
